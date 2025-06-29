@@ -1,11 +1,17 @@
 import { useState } from "react";
 import "./App.css";
 import Dock from "./components/Dock";
+import PropertiesList from "./components/properties/PropertiesList";
 
 function App() {
+  const [propertiesList, setPropertiesList] = useState([]);
+
   return (
     <>
-      <h1 className="text-red-400">Hello AirBNC!</h1>
+      <PropertiesList
+        propertiesList={propertiesList}
+        setPropertiesList={setPropertiesList}
+      />
       <Dock />
     </>
   );

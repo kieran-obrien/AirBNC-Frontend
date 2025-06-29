@@ -1,11 +1,11 @@
 export default function Dock() {
   return (
-    <div className="bg-base-200 w-full fixed bottom-0 left-0 right-0 flex justify-center items-center z-50 h-20">
+    <div className="bg-base-200 w-full fixed bottom-0 left-0 right-0 flex justify-center items-center z-50 h-18">
       <div className="dropdown dropdown-top">
         <div
           tabIndex={0}
           role="button"
-          className="btn btn-xl btn-ghost flex flex-col justify-around gap-0"
+          className="btn btn-xl btn-ghost flex flex-col justify-around gap-0 font-light"
         >
           <i className="ri-menu-search-line text-3xl"></i>
           <span className="text-xs">Search</span>
@@ -27,7 +27,7 @@ export default function Dock() {
         <div
           tabIndex={0}
           role="button"
-          className="btn btn-xl btn-ghost flex flex-col justify-around gap-0"
+          className="btn btn-xl btn-ghost flex flex-col justify-around gap-0 font-light"
         >
           <i className="ri-heart-2-line text-3xl"></i>
           <span className="text-xs">Favourites</span>
@@ -38,7 +38,7 @@ export default function Dock() {
         <div
           tabIndex={0}
           role="button"
-          className="btn btn-xl btn-ghost flex flex-col justify-around gap-0"
+          className="btn btn-xl btn-ghost flex flex-col justify-around gap-0 font-light"
         >
           <i className="ri-user-5-line text-3xl"></i>
           <span className="text-xs">Profile</span>
@@ -60,7 +60,7 @@ export default function Dock() {
         <div
           tabIndex={0}
           role="button"
-          className="btn btn-xl btn-ghost flex flex-col justify-around gap-0"
+          className="btn btn-xl btn-ghost flex flex-col justify-around gap-0 font-light"
         >
           <i className="ri-settings-5-line text-3xl"></i>
           <span className="text-xs">Settings</span>

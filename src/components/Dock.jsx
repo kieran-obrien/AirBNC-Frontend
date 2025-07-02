@@ -10,17 +10,69 @@ export default function Dock() {
           <i className="ri-menu-search-line text-3xl"></i>
           <span className="text-xs">Search</span>
         </div>
-        <ul
+        <div
           tabIndex={0}
-          className="dropdown-content menu bg-base-200  z-1 w-52 p-2 my-1 rounded-tr-xl"
+          className="dropdown-content menu bg-base-200 z-1 w-80 p-2 my-1 rounded-tr-xl"
         >
-          <li>
-            <a>Item 1</a>
-          </li>
-          <li>
-            <a>Item 2</a>
-          </li>
-        </ul>
+          <div className="card-body">
+            <div className="filter" id="sortBy">
+              <input
+                className="btn btn-secondary filter-reset"
+                type="radio"
+                name="sortBy"
+                aria-label="All"
+              />
+              <input
+                className="btn btn-secondary"
+                type="radio"
+                name="sortBy"
+                aria-label="Popularity"
+              />
+              <input
+                className="btn btn-secondary"
+                type="radio"
+                name="sortBy"
+                aria-label="Price Per Night"
+              />
+            </div>
+            <div className="filter" id="order">
+              <input
+                className="btn btn-secondary filter-reset"
+                type="radio"
+                name="order"
+                aria-label="All"
+              />
+              <input
+                className="btn btn-secondary"
+                type="radio"
+                name="order"
+                aria-label="Ascending"
+              />
+              <input
+                className="btn btn-secondary"
+                type="radio"
+                name="order"
+                aria-label="Descending"
+              />
+            </div>
+            <fieldset className="fieldset">
+              <legend className="fieldset-legend">Max Price</legend>
+              <input type="number" className="input input-secondary" placeholder="Type here" />
+              <p className="label">Optional</p>
+            </fieldset>
+            <fieldset className="fieldset">
+              <legend className="fieldset-legend">Min Price</legend>
+              <input type="number" className="input input-secondary" placeholder="Type here" />
+              <p className="label">Optional</p>
+            </fieldset>
+            <fieldset className="fieldset">
+              <legend className="fieldset-legend">Host ID#</legend>
+              <input type="number" className="input input-secondary" placeholder="Type here" />
+              <p className="label">Optional</p>
+            </fieldset>
+            <button className="btn w-1/2 btn-secondary">Filter</button>
+          </div>
+        </div>
       </div>
 
       <div className="dropdown dropdown-top">

@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import SearchMenu from "./SearchMenu";
 
 export default function Dock({ isUser, setIsUser, setUserId }) {
   useEffect(() => {
@@ -7,88 +8,7 @@ export default function Dock({ isUser, setIsUser, setUserId }) {
 
   return (
     <div className="bg-base-200 w-full fixed bottom-0 left-0 right-0 flex justify-center items-center z-50 h-18">
-      <div className="dropdown dropdown-top h-full group">
-        <div
-          tabIndex={0}
-          role="button"
-          className="btn btn-xl btn-ghost h-full flex flex-col justify-center gap-0 font-light group-focus-within:text-secondary"
-        >
-          <i className="ri-menu-search-line text-3xl"></i>
-          <span className="text-xs">Search</span>
-        </div>
-        <div
-          tabIndex={0}
-          className="dropdown-content menu bg-base-200 z-1 w-80 p-0 m-0 rounded-t-xl border-3 border-b-0 border-secondary-content"
-        >
-          <div className="card-body">
-            <div className="filter" id="sortBy">
-              <input
-                className="btn btn-secondary filter-reset"
-                type="radio"
-                name="sortBy"
-                aria-label="All"
-              />
-              <input
-                className="btn btn-secondary"
-                type="radio"
-                name="sortBy"
-                aria-label="Popularity"
-              />
-              <input
-                className="btn btn-secondary"
-                type="radio"
-                name="sortBy"
-                aria-label="Price Per Night"
-              />
-            </div>
-
-            <div className="filter" id="order">
-              <input
-                className="btn btn-secondary filter-reset"
-                type="radio"
-                name="order"
-                aria-label="All"
-              />
-              <input
-                className="btn btn-secondary"
-                type="radio"
-                name="order"
-                aria-label="Ascending"
-              />
-              <input
-                className="btn btn-secondary"
-                type="radio"
-                name="order"
-                aria-label="Descending"
-              />
-            </div>
-
-            <hr className="text-secondary-content my-3"></hr>
-
-            <p className="font-bold text-xs">Min Price</p>
-            <input
-              type="range"
-              min={0}
-              max="500"
-              defaultValue="0"
-              className="range range-secondary"
-            />
-
-            <p className="font-bold text-xs">Max Price</p>
-            <input
-              type="range"
-              min={0}
-              max="500"
-              defaultValue="500"
-              className="range range-secondary"
-            />
-
-            <hr className="text-secondary-content my-3"></hr>
-
-            <button className="btn w-1/2 btn-secondary">Filter</button>
-          </div>
-        </div>
-      </div>
+      <SearchMenu />
 
       <div className="dropdown dropdown-top h-full group">
         <div

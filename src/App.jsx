@@ -4,15 +4,12 @@ import Dock from "./components/Dock";
 import PropertiesList from "./components/properties/PropertiesList";
 
 function App() {
-  const [propertiesList, setPropertiesList] = useState([]);
-
+  const [isUser, setIsUser] = useState(true);
+  const [userId, setUserId] = useState(2);
   return (
     <>
-      <PropertiesList
-        propertiesList={propertiesList}
-        setPropertiesList={setPropertiesList}
-      />
-      <Dock />
+      <PropertiesList />
+      <Dock isUser={isUser} setIsUser={setIsUser} setUserId={setUserId}/>
     </>
   );
 }

@@ -1,8 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import PropertyCard from "./PropertyCard";
 
-export default function PropertiesList({ propertiesList, setPropertiesList }) {
+export default function PropertiesList() {
+  const [propertiesList, setPropertiesList] = useState([]);
+
   useEffect(() => {
     async function getPropertiesList() {
       const { data } = await axios.get(
@@ -11,7 +13,7 @@ export default function PropertiesList({ propertiesList, setPropertiesList }) {
       setPropertiesList(data.properties);
     }
     getPropertiesList();
-  }, [propertiesList]);
+  }, []);
 
   function handlePropertyClick() {
     console.log("Property selected!");

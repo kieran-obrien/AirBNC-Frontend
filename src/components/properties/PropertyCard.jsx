@@ -28,3 +28,5 @@ export default function PropertyCard({ property, handlePropertyClick }) {
     </div>
   );
 }
+
+

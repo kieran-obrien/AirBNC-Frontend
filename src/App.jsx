@@ -2,7 +2,9 @@ import { useState } from "react";
 import "./App.css";
 import Dock from "./components/dock/Dock";
 import PropertiesList from "./components/properties/PropertiesList";
-import { Route, Routes } from "react-router";
+import { Route, Routes } from "react-router-dom";
+import ProfilePage from "./components/profile-page/ProfilePage";
+import FavouritesPage from "./components/favourites-page/FavouritesPage";
 
 function App() {
   const [isUser, setIsUser] = useState(true);
@@ -10,10 +12,17 @@ function App() {
 
   return (
     <>
-      <Dock isUser={isUser} setIsUser={setIsUser} setUserId={setUserId} />
+      <Dock
+        isUser={isUser}
+        userId={userId}
+        setIsUser={setIsUser}
+        setUserId={setUserId}
+      />
       <Routes>
         <Route path="/" element={<PropertiesList />} />
         <Route path="/properties" element={<PropertiesList />} />
+        <Route path="/users/:id" element={<ProfilePage />} />
+        <Route path="/favourites" element={<FavouritesPage />} />
       </Routes>
     </>
   );

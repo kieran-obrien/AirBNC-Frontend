@@ -1,7 +1,5 @@
-export default function ProfilePage() {
-  return (
-    <section className="p-3">
-      <h1>USER PAGE</h1>
-    </section>
-  );
+import ProfileCard from "../dock/profile-menu/ProfileCard";
+
+export default function ProfilePage({ userId }) {
+  return <ProfileCard userId={userId} />;
 }

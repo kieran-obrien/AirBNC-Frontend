@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import MinPriceInput from "./input-components/MinPriceInput";
 import MaxPriceInput from "./input-components/MaxPriceInput";
-import Line from "../Line";
+import Line from "../../Line";
 
 export default function SearchMenu() {
   const navigate = useNavigate();

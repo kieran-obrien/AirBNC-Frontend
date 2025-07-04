@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Dock from "./components/dock/Dock";
-import PropertiesList from "./components/properties/PropertiesList";
+import PropertiesList from "./components/properties-page/PropertiesList";
 import { Route, Routes } from "react-router-dom";
 import ProfilePage from "./components/profile-page/ProfilePage";
 import FavouritesPage from "./components/favourites-page/FavouritesPage";

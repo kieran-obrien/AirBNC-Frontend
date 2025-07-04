@@ -1,6 +1,8 @@
-import Line from "../Line";
+import { useLocation } from "react-router";
+import Line from "../../Line";
 
 export default function SettingsMenu({ isUser, setIsUser }) {
+  const location = useLocation();
   return (
     <nav className="dropdown dropdown-top dropdown-end h-full group">
       <button
@@ -51,17 +53,22 @@ export default function SettingsMenu({ isUser, setIsUser }) {
               <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
             </svg>
           </label>
-          <Line />
-          <div className="flex gap-2 justify-center">
-            <p>Host</p>
-            <input
-              type="checkbox"
-              defaultChecked
-              className="toggle toggle-secondary theme-controller"
-              onChange={() => setIsUser(!isUser)}
-            />
-            <p>User</p>
-          </div>
+
+          {location.pathname.startsWith("/users") ? null : (
+            <>
+              <Line />
+              <div className="flex gap-2 justify-center">
+                <p>Host</p>
+                <input
+                  type="checkbox"
+                  defaultChecked
+                  className="toggle toggle-secondary theme-controller"
+                  onChange={() => setIsUser(!isUser)}
+                />
+                <p>User</p>
+              </div>
+            </>
+          )}
         </section>
       </div>
     </nav>

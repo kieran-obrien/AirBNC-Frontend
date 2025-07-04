@@ -35,7 +35,7 @@ export default function PropertiesList() {
   }
 
   return (
-    <div className="grid grid-cols-2 gap-4 p-3 mb-20">
+    <div className="grid grid-cols-2 gap-4 p-3 pb-20">
       {propertiesList.map((property) => {
         return (
           <PropertyCard

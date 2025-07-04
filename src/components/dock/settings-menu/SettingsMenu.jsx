@@ -8,9 +8,9 @@ export default function SettingsMenu({ isUser, setIsUser }) {
       <button
         tabIndex={0}
         role="button"
-        className="btn btn-xl btn-ghost h-full flex flex-col justify-center gap-0 font-light group-focus-within:text-secondary"
+        className="btn btn-xl btn-ghost h-full flex flex-col justify-center gap-0 font-light group-focus-within:text-secondary hover:[&>i]:rotate-12"
       >
-        <i className="ri-settings-5-line text-3xl"></i>
+        <i className="ri-settings-5-line text-3xl transition-transform duration-300 ease-in-out"></i>
         <span className="text-xs">Settings</span>
       </button>
       <div

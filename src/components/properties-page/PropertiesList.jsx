@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 import axios from "axios";
 import PropertyCard from "./PropertyCard";
+import { Link } from "react-router-dom";
 
 export default function PropertiesList() {
   const [searchParams] = useSearchParams();
@@ -38,11 +39,15 @@ export default function PropertiesList() {
     <div className="grid grid-cols-2 gap-4 p-3 pb-20">
       {propertiesList.map((property) => {
         return (
-          <PropertyCard
+          <Link
             key={property.property_id}
-            property={property}
-            handlePropertyClick={handlePropertyClick}
-          />
+            to={`/properties/${property.property_id}`}
+          >
+            <PropertyCard
+              property={property}
+              handlePropertyClick={handlePropertyClick}
+            />
+          </Link>
         );
       })}
     </div>

@@ -20,24 +20,35 @@ export default function SinglePropertyPage() {
   }, []);
 
   return (
-    <div className="bg-base-100 shadow-md rounded-xl flex-col align-center justify-center relative">
-      <button className="btn btn-sm hover:text-rose-500 btn-circle absolute top-8 sm:top-4 right-5 z-10">
-        <i className="ri-heart-2-line text-lg font-light"></i>
+    <div className="h-full bg-base-100 shadow-md rounded-xl flex-col align-center justify-center relative">
+      <button
+        className="btn btn-md hover:text-rose-500 btn-circle absolute top-4 left-4 z-10"
+        onClick={() => window.history.back()}
+      >
+        <i className="ri-arrow-go-back-line text-xl font-light"></i>
       </button>
+      <button className="btn btn-md hover:text-rose-500 btn-circle absolute top-4 right-4 z-10">
+        <i className="ri-heart-2-line text-2xl font-light"></i>
+      </button>
+      <button className="btn btn-md hover:text-rose-500 btn-circle absolute top-4 right-16 z-10">
+        <i className="ri-share-2-line text-2xl font-light"></i>
+      </button>
+
       <figure className="flex justify-center">
-        <img
-          src={propertyDetails.images?.[0] || null}
-          className="w-40 h-40 rounded-sm mt-2 mask mask-squircle"
-        />
+        <img src={propertyDetails.images?.[0] || null} className="w-full" />
       </figure>
-      <div className="p-2">
-        <h1 className="text-sm font-bold">{propertyDetails.property_name}</h1>
-        <p className="text-xs"></p>
-        <p className="text-xs">
-          <span>
-            <i className="ri-heart-2-fill text-xs text-rose-500"> </i>
-          </span>
+      <div className="p-2 z-2 rounded-4xl bg-base-100 -mt-5 h-full relative">
+        <h1 className="text-2xl text-center font-bold m-5">
+          {propertyDetails.property_name}
+        </h1>
+        <p className="mx-16 text-center text-md text-gray-500">
+          {propertyDetails.description}
         </p>
+        <div className="m-10 grid grid-cols-3 items-center text-3xl">
+          <p className="justify-self-center">£{propertyDetails.price_per_night}<span className="text-sm">/night</span></p>
+          <hr className="rotate-90 w-12 text-secondary-content justify-self-center"></hr>
+          <p className="justify-self-center"><i class="ri-heart-2-fill font-light text-secondary mr-2"></i>{propertyDetails.favourite_count}</p>
+        </div>
       </div>
     </div>
   );

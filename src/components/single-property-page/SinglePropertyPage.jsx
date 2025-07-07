@@ -26,7 +26,7 @@ export default function SinglePropertyPage() {
       </button>
       <figure className="flex justify-center">
         <img
-          src={propertyDetails.images}
+          src={propertyDetails.images?.[0] || null}
           className="w-40 h-40 rounded-sm mt-2 mask mask-squircle"
         />
       </figure>

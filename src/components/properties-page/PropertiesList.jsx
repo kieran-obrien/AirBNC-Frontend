@@ -31,25 +31,23 @@ export default function PropertiesList() {
     getPropertiesList();
   }, [searchParams]);
 
-  function handlePropertyClick() {
-    console.log("Property selected!");
-  }
-
-  return (
+  return propertiesList?.length > 0 ? (
     <div className="grid grid-cols-2 gap-4 p-3 pb-20">
-      {propertiesList.map((property) => {
-        return (
-          <Link
-            key={property.property_id}
-            to={`/properties/${property.property_id}`}
-          >
-            <PropertyCard
-              property={property}
-              handlePropertyClick={handlePropertyClick}
-            />
-          </Link>
-        );
-      })}
+      {propertiesList.map((property) => (
+        <Link
+          key={property.property_id}
+          to={`/properties/${property.property_id}`}
+        >
+          <PropertyCard property={property} />
+        </Link>
+      ))}
+    </div>
+  ) : (
+    <div className="flex flex-col items-center justify-center m-20 mt-40">
+      <i className="ri-emotion-sad-line font-light text-secondary text-6xl mb-2"></i>
+      <p className="text-center font-semibold">
+        Oops! Looks like we don't have any homes that match your search!
+      </p>
     </div>
   );
 }

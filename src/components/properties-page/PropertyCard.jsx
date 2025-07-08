@@ -1,9 +1,6 @@
-export default function PropertyCard({ property, handlePropertyClick }) {
+export default function PropertyCard({ property }) {
   return (
-    <div
-      className="bg-base-100 h-full shadow-md rounded-xl flex-col align-center justify-center relative"
-      onClick={handlePropertyClick}
-    >
+    <div className="bg-base-100 h-full shadow-md rounded-xl flex-col align-center justify-center relative">
       <button className="btn btn-sm hover:text-rose-500 btn-circle absolute top-8 sm:top-4 right-5 z-10">
         <i className="ri-heart-2-line text-lg font-light"></i>
       </button>
@@ -28,5 +25,3 @@ export default function PropertyCard({ property, handlePropertyClick }) {
     </div>
   );
 }
-
-

@@ -3,7 +3,8 @@ import { useSearchParams } from "react-router";
 import axios from "axios";
 import PropertyCard from "./PropertyCard";
 import { Link } from "react-router-dom";
-import PropertyCardSkeletons from "./PropertyCardSkeleton";
+import PropertyCardSkeletons from "./PropertyCardSkeletons";
+import Line from "../Line";
 
 export default function PropertiesList() {
   const [searchParams] = useSearchParams();
@@ -44,6 +45,13 @@ export default function PropertiesList() {
     <PropertyCardSkeletons />
   ) : propertiesList?.length > 0 ? (
     <div className="grid grid-cols-2 gap-4 p-3 pb-20">
+      <div className="col-span-2 flex flex-col items-center">
+        <div className="flex gap-1 items-center">
+          <i class="ri-home-smile-line font-light text-secondary text-4xl"></i>
+          <h1 className="text-secondary text-2xl font-bold">AirBNC</h1>
+        </div>
+        <Line />
+      </div>
       {propertiesList.map((property) => (
         <Link
           key={property.property_id}

@@ -3,9 +3,11 @@ import { useSearchParams } from "react-router";
 import axios from "axios";
 import PropertyCard from "./PropertyCard";
 import { Link } from "react-router-dom";
+import PropertyCardSkeletons from "./PropertyCardSkeleton";
 
 export default function PropertiesList() {
   const [searchParams] = useSearchParams();
+  const [isLoading, setIsLoading] = useState(true);
   const [propertiesList, setPropertiesList] = useState([]);
 
   useEffect(() => {
@@ -23,15 +25,24 @@ export default function PropertiesList() {
     const queryString = params.toString() ? `?${params.toString()}` : "";
 
     async function getPropertiesList() {
-      const { data } = await axios.get(
-        `https://airbnc-backend.kieranobrien.dev/api/properties${queryString}`
-      );
-      setPropertiesList(data.properties);
+      try {
+        const { data } = await axios.get(
+          `https://airbnc-backend.kieranobrien.dev/api/properties${queryString}`
+        );
+        setPropertiesList(data.properties);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
     }
+    setIsLoading(true);
     getPropertiesList();
   }, [searchParams]);
 
-  return propertiesList?.length > 0 ? (
+  return isLoading ? (
+    <PropertyCardSkeletons />
+  ) : propertiesList?.length > 0 ? (
     <div className="grid grid-cols-2 gap-4 p-3 pb-20">
       {propertiesList.map((property) => (
         <Link

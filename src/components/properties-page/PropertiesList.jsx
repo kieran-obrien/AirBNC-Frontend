@@ -62,7 +62,7 @@ export default function PropertiesList() {
       ))}
     </div>
   ) : (
-    <div className="flex flex-col items-center justify-center m-20 mt-40">
+    <div className="flex flex-col items-center justify-center m-20 mt-4">
       <i className="ri-emotion-sad-line font-light text-secondary text-6xl mb-2"></i>
       <p className="text-center font-semibold">
         Oops! Looks like we don't have any homes that match your search!

@@ -2,11 +2,16 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Line from "../../Line";
 import { Link } from "react-router-dom";
+import ProfileCardSkeleton from "./ProfileCardSkeleton";
 
 export default function ProfileCard({ userId }) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [userDetails, setUserDetails] = useState({});
+
   useEffect(() => {
     async function getUserDetails() {
-      const {
+      try {
+        const {
         data: { user },
       } = await axios.get(
         `https://airbnc-backend.kieranobrien.dev/api/users/${userId}`
@@ -26,13 +31,17 @@ export default function ProfileCard({ userId }) {
         userEmail,
         userMemberSince,
       });
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
     }
+    setIsLoading(true);
     getUserDetails();
   }, [userId]);
 
-  const [userDetails, setUserDetails] = useState({});
-
-  return (
+  return isLoading ? (<ProfileCardSkeleton/>) : (
     <section className="card-body flex flex-col relative gap-3 justify-center items-center">
       <Link
         to={`/users/${userId}`}
@@ -40,7 +49,6 @@ export default function ProfileCard({ userId }) {
       >
         <i className="ri-user-settings-line text-xl font-light"></i>
       </Link>
-
       <div>
         <div className="avatar">
           <div className="mask mask-squircle w-32">
@@ -49,19 +57,16 @@ export default function ProfileCard({ userId }) {
         </div>
         <Line />
       </div>
-
       <div className="flex flex-col items-center gap-1 -mt-5">
         <h5 className="text-sm font-semibold">{userDetails.userName}</h5>
         <span className="badge badge-sm badge-secondary badge-outline">
           {userDetails.isHost ? "Host" : "Guest"}
         </span>
       </div>
-
       <p>
         <i className="ri-mail-line text-lg text-secondary mr-2"></i>
         {userDetails.userEmail}
       </p>
-
       <p>
         Member Since:{" "}
         <span className="font-semibold">{userDetails.userMemberSince}</span>

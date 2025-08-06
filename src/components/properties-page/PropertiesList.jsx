@@ -47,7 +47,7 @@ export default function PropertiesList() {
     <div className="grid grid-cols-2 gap-4 p-3 pb-20">
       <div className="col-span-2 flex flex-col items-center">
         <div className="flex gap-1 items-center">
-          <i class="ri-home-smile-line font-light text-secondary text-4xl"></i>
+          <i className="ri-home-smile-line font-light text-secondary text-4xl"></i>
           <h1 className="text-secondary text-2xl font-bold">AirBNC</h1>
         </div>
         <Line />

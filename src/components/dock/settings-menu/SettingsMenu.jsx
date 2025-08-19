@@ -61,7 +61,7 @@ export default function SettingsMenu({ isUser, setIsUser }) {
                 <p>Host</p>
                 <input
                   type="checkbox"
-                  defaultChecked
+                  checked={isUser}
                   className="toggle toggle-secondary theme-controller"
                   onChange={() => setIsUser(!isUser)}
                 />
